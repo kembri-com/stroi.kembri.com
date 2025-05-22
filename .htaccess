@@ -1,0 +1,65 @@
+php_flag display_errors off
+
+AddDefaultCharset utf-8
+
+RewriteEngine on
+RewriteBase /
+
+
+# ---- REDIRECT 301 ---- #
+# Redirect 301 /feed/ https://stroi.kembri.com/feed.xml
+# ---- End REDIRECT 301 ---- #
+
+
+# Add on end slesh (/)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)\.xlsx$
+RewriteCond %{REQUEST_URI} !(.*)\.xml$
+RewriteCond %{REQUEST_URI} !(.*)\.yml$
+RewriteCond %{REQUEST_URI} !\.(css|js)$
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+
+# Remove slesh for js and css
+RewriteCond %{REQUEST_URI} ^(.+)\.css/$
+RewriteRule ^(.+)\.css/$ /$1.css [L,R=301]
+RewriteCond %{REQUEST_URI} ^(.+)\.js/$
+RewriteRule ^(.+)\.js/$ /$1.js [L,R=301]
+
+# Redirect on the slesh in double slesh (// -> /)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} ^(.*)//(.*)$
+RewriteRule . %1/%2 [R=301,L]
+
+# Redirect on the tire in double tire (-- -> -)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} ^(.*)--(.*)$
+RewriteRule . %1-%2 [R=301,L]
+
+# Redirect on the http protocol (https -> http)
+#RewriteCond %{SERVER_PORT} ^443$ [OR]
+#RewriteCond %{HTTPS} =on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# # Redirect on the http protocol (http -> https)
+# RewriteCond %{HTTP:X-HTTPS} !1
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirect on the www domens (www -> [none])
+RewriteCond %{HTTP_HOST} ^www.stroi.kembri.com$ [NC]
+RewriteRule ^(.*)$ https://stroi.kembri.com/$1 [R=301,L]
+
+# # Result Redirect on chpy
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^(.*)$ /?%{QUERY_STRING}
+
+
+<ifModule mod_headers.c>
+Header unset X-Powered-By
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-Permitted-Cross-Domain-Policies "master-only"
+Header set X-Content-Type-Options nosniff
+Header set Strict-Transport-Security 31536000
+</IfModule>

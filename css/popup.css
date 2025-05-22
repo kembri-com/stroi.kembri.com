@@ -1,0 +1,105 @@
+#popupform
+{
+    display: none;
+}
+
+#popupform .error {
+    color: #c00000;
+}
+#popupform h2 {
+    color: #353535;
+    font: 1.714em/1em 'Trebuchet MS';
+    margin-bottom: 8px;
+}
+#popupform .comment {
+    color: #717171;
+    font: 0.928em 'Trebuchet MS';
+    margin-bottom: 3px;
+}
+#popupform label {
+    display: block;
+    padding: 16px 0 4px;
+}
+#popupform .input_text {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 12pt;
+    height: 40px;
+    margin: 35px 6px 0 0;
+    padding: 10px;
+    width: 100%;
+}
+
+#popupform .button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #555;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    height: 40px;
+    margin: 20px 0;
+    padding: 2px 16px;
+    width: 185px;
+}
+#popupform .button:hover {
+    background-color:  #009EE3;
+    border: 1px solid  #009EE3;
+    color: #fff;
+}
+
+
+#formz .error {
+    color: #c00000;
+}
+#formz h2 {
+    color: #353535;
+    font: 1.714em/1em 'Trebuchet MS';
+    margin-bottom: 8px;
+}
+#formz .comment {
+    color: #717171;
+    font: 0.928em 'Trebuchet MS';
+    margin-bottom: 3px;
+}
+#formz label {
+    display: block;
+    padding: 16px 0 4px;
+}
+#formz .input_text {
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    color: #555;
+    display: block;
+    font-size: 12pt;
+    height: 40px;
+    margin: 35px 6px 0 0;
+    padding: 10px;
+    width: 100%;
+	border-radius: 10px 10px 10px 10px; /*Р—Р°РєСЂСѓРіР»СЏРµРј СѓРіРѕР»РєРё*/
+}
+
+#formz .button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #555;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    height: 40px;
+    margin: 20px 0;
+    padding: 2px 16px;
+    width: 185px;
+}
+#formz .button:hover {
+    background-color:  #009EE3;
+    border: 1px solid  #009EE3;
+    color: #fff;
+}
+
